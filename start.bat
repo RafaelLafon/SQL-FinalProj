@@ -1,0 +1,1 @@
+php -S localhost:8000 -C ./php.ini
