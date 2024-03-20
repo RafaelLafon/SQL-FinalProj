@@ -24,6 +24,7 @@ while ($row = $result->fetchArray()) {
         'DeliveryStatus' => $deliveryStatus,
         'ReasonForFailure' => $reasonForFailure,
     ];
+    // Todo sanitize data
 }
 ?>
 <html>
