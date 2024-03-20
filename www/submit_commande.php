@@ -29,6 +29,20 @@ try {
             echo "Failed to submit the commande.";
         }
     }
+
+    $nom_resto = $_POST['nom_resto'];
+    $localisation_resto = $_POST['localisation_resto'];
+    $commentaire = $_POST['commentaire'];
+    $lieu_livraison = $_POST['lieu_livraison'];
+
+    $sql = "INSERT INTO commands (nom_resto, localisation_resto, commentaire, lieu_livraison) VALUES ('$nom_resto', '$localisation_resto', '$commentaire', '$lieu_livraison')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "La commande a été soumise avec succès.";
+    } else {
+        echo "Erreur : " . $sql . "<br>" . $conn->error;
+    }
+
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
