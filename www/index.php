@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="commentaire">Commentaire :</label>
-                <textarea id="commentaire" name="commentaire" rows="4"></textarea>
+                <input type="text" id="commentaire" name="commentaire" rows="4" required>
             </div>
             <div class="form-group">
                 <label for="lieu_livraison">Lieu de livraison de la commande :</label>

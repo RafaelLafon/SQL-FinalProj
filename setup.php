@@ -1,7 +1,7 @@
 <?php
 error_log("startup", 0);
 try {
-    $database = new SQLite3('../SQL/restot.sqlite3');
+    $database = new SQLite3('./SQL/restot.sqlite3');
     echo "Connected to the database.\n";
     // Create the table if it does not exist
     $database->exec('CREATE TABLE IF NOT EXISTS restaurants (

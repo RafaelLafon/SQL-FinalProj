@@ -14,3 +14,7 @@ CREATE TABLE IF NOT EXISTS commands (
     ReasonForFailure TEXT,
     FOREIGN KEY (RestaurantId) REFERENCES restaurants(RestaurantId)
 );
+
+
+INSERT INTO restaurants (Name, Location) VALUES ('Resto1', 'Nimes');
+INSERT INTO restaurants (Name, Location) VALUES ('Resto2', 'Toulouse');
