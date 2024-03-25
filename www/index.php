@@ -1,8 +1,24 @@
 <?php
 session_start();
 $database = new SQLite3('../SQL/restot.sqlite3');
-$command = [];
 
+// always fetch the restaurants
+$restaurants = [];
+$stmt = $database->prepare('SELECT RestaurantId, Name, Location FROM restaurants');
+$result = $stmt->execute();
+while ($row = $result->fetchArray()) {
+    $location = $row['Location'];
+    $name = $row['Name'];
+    $restaurantId = $row['RestaurantId'];
+    $restaurants[] = [
+        'RestaurantId' => $restaurantId,
+        'Name' => $name,
+        'Location' => $location,
+    ];
+}
+
+// if the form was submitted, insert the command into the database
+$command = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_resto = $_POST['resto_id'];
     $delivery_place = $_POST['lieu_livraison'];
@@ -34,23 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Store the updated $command array in the session
         $_SESSION['command'] = $command;
     } else {
-        echo "Failed to submit the commande.";
+        echo "Erreur lors de l'enregistement de la commande.";
     }
-}
-
-// always fetch the restaurants
-$restaurants = [];
-$stmt = $database->prepare('SELECT RestaurantId, Name, Location FROM restaurants');
-$result = $stmt->execute();
-while ($row = $result->fetchArray()) {
-    $location = $row['Location'];
-    $name = $row['Name'];
-    $restaurantId = $row['RestaurantId'];
-    $restaurants[] = [
-        'RestaurantId' => $restaurantId,
-        'Name' => $name,
-        'Location' => $location,
-    ];
 }
 ?>
 
