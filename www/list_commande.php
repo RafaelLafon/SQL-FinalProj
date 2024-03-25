@@ -29,19 +29,28 @@ while ($row = $result->fetchArray()) {
 ?>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Liste des commandes</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <script src="/JS/script.js"></script>
 </head>
 <body>
     <h1>Liste des commandes</h1>
+    <nav>
+        <ul>
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="list_commande.php">Lister les commandes</a></li>
+        </ul>
+    </nav>
     <table border="1">
         <tr>
-            <th>CommandId</th>
-            <th>RestaurantId</th>
-            <th>CommandDate</th>
-            <th>Commentary</th>
-            <th>DeliveryPlace</th>
-            <th>DeliveryStatus</th>
-            <th>ReasonForFailure</th>
+            <th>ID</th>
+            <th>ID du restaurant</th>
+            <th>Date de la commande</th>
+            <th>Commentaire</th>
+            <th>Lieu de livraison</th>
+            <th>Status de livraison</th>
+            <th>Raison en cas d'échec de livraison</th>
         </tr>
         <?php foreach ($commands as $command) : ?>
             <tr>
