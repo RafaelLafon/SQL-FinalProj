@@ -45,7 +45,7 @@ while ($row = $result->fetchArray()) {
         </tr>
         <?php foreach ($commands as $command) : ?>
             <tr>
-                <td><?= $command['CommandId'] ?></td>
+                <td><a href="/show_commande.php?id=<?= $command['CommandId'] ?>"><?= $command['CommandId'] ?></a></td>
                 <td><?= $command['RestaurantId'] ?></td>
                 <td><?= $command['CommandDate'] ?></td>
                 <td><?= $command['Commentary'] ?></td>
@@ -55,3 +55,4 @@ while ($row = $result->fetchArray()) {
             </tr>
         <?php endforeach; ?>
     </table>
+</body>
