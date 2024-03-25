@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS commands (
     CommandDate DATETIME,
     Commentary TEXT,
     DeliveryPlace VARCHAR(255),
-    DeliveryStatus INT,
+    DeliveryStatus TEXT,
     ReasonForFailure TEXT,
     FOREIGN KEY (RestaurantId) REFERENCES restaurants(RestaurantId)
 );

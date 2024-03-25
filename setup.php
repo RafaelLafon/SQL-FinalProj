@@ -1,5 +1,5 @@
 <?php
-error_log("startup", 0);
+error_log("startup script (should initiate the db, but idk why the module sqlite isn't found when executed, so the init commands were run by hand)", 0);
 try {
     $database = new SQLite3('./SQL/restot.sqlite3');
     echo "Connected to the database.\n";
